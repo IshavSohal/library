@@ -1,5 +1,5 @@
 # library
-
+```
 // vite-dual-css-plugin.js
 export default function viteDualCssPlugin() {
   return {
@@ -36,3 +36,4 @@ export default function viteDualCssPlugin() {
     }
   };
 }
+```
