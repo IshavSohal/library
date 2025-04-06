@@ -115,6 +115,7 @@ button:hover, button:focus {
 /* Add book modal */
 #add-book-modal {
     padding: 40px;
+    min-width: 225px;
 }
 
 #add-book-modal input, #add-book-modal button {
