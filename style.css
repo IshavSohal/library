@@ -1,0 +1,180 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    line-height: 1.5;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 99%;
+    height: 99%;
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4, button, input, label {
+  line-height: 1.1;
+}
+
+/* Improve line wrapping */
+p {
+    text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+  
+/* Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Improve media defaults */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Inherit fonts for form controls */
+input, button, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+
+/* Table styling */
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(200,200,200);
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+  }
+  
+td, th {
+    border: 1px solid rgb(190,190,190);
+    padding: 10px 20px;
+}
+
+th {
+    background-color: rgb(235,235,235);
+}
+
+td {
+    text-align: center;
+}
+
+tr:nth-child(odd) td {
+    background-color: rgb(250,250,250);
+}
+
+tr:nth-child(even) td {
+    background-color: rgb(240,240,240);
+}
+
+button {
+    background-color: rgb(132, 125, 125);
+    color: white;
+}
+
+button:hover, button:focus {
+    background-color: white;
+    color:black;
+}
+
+
+/* Add book button */
+#new-book{
+    margin-top: 20px;
+    width: 300px;
+    height: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+}
+
+
+/* Add book modal */
+#add-book-modal {
+    padding: 40px;
+}
+
+#add-book-modal input, #add-book-modal button {
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.form-input{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-right: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Modal buttons */
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+/* Red asterik to signify that field is required */
+#book-title + span::after{
+    position: absolute;
+    content: "*";
+    top: 0px;
+    left: 35px;
+    z-index: 20;
+    color: red;
+}
+
+#book-author + span::after{
+    position: absolute;
+    content: "*";
+    top: 0px;
+    left: 50px;
+    z-index: 20;
+    color: red;
+}
+
+#num-pages + span::after{
+    position: absolute;
+    content: "*";
+    top: 0px;
+    left: 125px;
+    z-index: 20;
+    color: red;
+}
+
+#have-read + span::after{
+    position: absolute;
+    content: "*";
+    top: 0px;
+    left: 170px;
+    z-index: 20;
+    color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
