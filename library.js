@@ -18,6 +18,10 @@ function Book(title, author, pages, read = false) {
     this.read = read;
 }
 
+Book.prototype.toggleRead = function () {
+    this.read = !this.read;
+};
+
 function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
@@ -29,20 +33,43 @@ function updateTable() {
 
     myLibrary.forEach((book) => {
         const newRow = bookTableBody.insertRow(-1);
-        const idCell = newRow.insertCell(-1);
         const titleCell = newRow.insertCell(-1);
         const authorCell = newRow.insertCell(-1);
         const pagesCell = newRow.insertCell(-1);
         const readCell = newRow.insertCell(-1);
-        idCell.textContent = book.id;
         titleCell.textContent = book.title;
         authorCell.textContent = book.author;
         pagesCell.textContent = book.pages;
+
+        // Used to link DOM element to Book object
+        newRow.setAttribute("data-id", book.id);
+
+        const toggleReadCheckbox = document.createElement("input");
+        toggleReadCheckbox.setAttribute("type", "checkbox");
+        toggleReadCheckbox.addEventListener("change", () => {
+            book.toggleRead();
+        });
+        readCell.appendChild(toggleReadCheckbox);
+
+        // Button to remove a Book object from the array, as well as remove
+        // the corresponding DOM element
         const removeBookButton = document.createElement("button");
-        //TODO: fix this
-        // const readButton = document.createElement("button");
-        // readButton.textContent = book.read ? "Un-read" : "Read";
-        readCell.textContent = book.read ? "Yes" : "No";
+        removeBookButton.textContent = "Remove Book";
+        removeBookButton.classList.add("remove-book");
+        removeBookButton.addEventListener("click", () => {
+            myLibrary.splice(
+                myLibrary.findIndex((item) => item.id === newRow.dataset.id),
+                1
+            );
+            bookTableBody.removeChild(newRow);
+        });
+        const removeBookContainer = document.createElement("span");
+        readCell.style.position = "relative";
+        removeBookContainer.style.position = "absolute";
+        removeBookContainer.style.left = "100px";
+        removeBookContainer.style.top = "5px";
+        removeBookContainer.appendChild(removeBookButton);
+        readCell.appendChild(removeBookContainer);
     });
 }
 
@@ -78,5 +105,4 @@ submitModalButton.addEventListener("click", (e) => {
 // addBookToLibrary("The Hobbit", "J.R.R Tokien", 295, false);
 // addBookToLibrary("The Hobbit", "J.R.R Tokien", 295, false);
 // addBookToLibrary("The Hobbit", "J.R.R Tokien", 295, false);
-
-updateTable();
+// updateTable();
