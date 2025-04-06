@@ -104,5 +104,5 @@ submitModalButton.addEventListener("click", (e) => {
 // addBookToLibrary("The Hobbit", "J.R.R Tokien", 295, true);
 // addBookToLibrary("The Hobbit", "J.R.R Tokien", 295, false);
 // addBookToLibrary("The Hobbit", "J.R.R Tokien", 295, false);
-// addBookToLibrary("The Hobbit", "J.R.R Tokien", 295, false);
-// updateTable();
+addBookToLibrary("The Hobbit", "J.R.R Tokien", 295, false);
+updateTable();
